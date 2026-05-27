@@ -63,8 +63,4 @@ npm run preview
 - `src/App.jsx` - root app component
 - `src/main.jsx` - app entry point
 
-<<<<<<< HEAD
  
-=======
- 
->>>>>>> 1f19854 (config file updated)
