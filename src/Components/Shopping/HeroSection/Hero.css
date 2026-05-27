@@ -1,0 +1,14 @@
+.heroSection{
+    width: 75%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+.heroSection h1{
+    font-size: 50px;
+}
+.heroSection p{
+    font-size: 20px;
+}

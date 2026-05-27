@@ -1,0 +1,16 @@
+.collections{
+    /* background: red; */
+    border: none;
+    border-radius: 20px;
+    background: rgb(75, 154, 234);
+    color: white;
+    padding: 10px 15px;
+    width: 200px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 600px;
+    /* text-align: left; */
+}

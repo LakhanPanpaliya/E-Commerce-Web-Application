@@ -1,0 +1,26 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    width:75% ;
+    margin: 60px auto;
+    /* border: 1px solid black; */
+    /* padding: 20px; */
+}
+.left-part{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    gap: 30px;
+}
+.footer-symbols{
+    display: flex;
+    gap: 20px;
+}
+.right-part{
+    display:  flex;
+    gap: 80px;
+}
+.shop, .legal, .support{
+    display: flex;flex-direction: column;
+    gap: 15px   ;
+}
