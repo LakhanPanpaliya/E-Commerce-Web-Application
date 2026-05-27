@@ -42,29 +42,24 @@ function Header() {
   };
 
   const cart = useSelector((state) => state.Product.cart);
-  const dispatch = useDispatch();
-  // const currentView = useSelector((state) => state.nav)
-  // count total add to cart
+  const dispatch = useDispatch(); 
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   return (
     <AppBar position="sticky" sx={{ bgcolor: "white", color: "black" }}>
       <Container maxWidth="xl" sx={{ width: "78%" }}>
-        <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+        <Toolbar disableGutters> 
           <Typography
             variant="h5"
             onClick={() => dispatch(setView("Inventory"))}
             noWrap
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
-              // fontFamily: "monospace",
+              display: { xs: "none", md: "flex" }, 
               fontWeight: 900,
               letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
-              cursor: "pointer",
-              // fontFamily : 'Inter',
+              cursor: "pointer", 
               fontFamily: 'Inter, sans-serif',
               fontSize :"bold",
               fontWidth:"24px",
@@ -116,8 +111,7 @@ function Header() {
             </Menu>
           </Box>
 
-          {/* desktop view */}
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* desktop view */} 
           <Typography
             variant="h5"
             noWrap

@@ -2,9 +2,7 @@
     display: flex;
     justify-content: space-between;
     width:75% ;
-    margin: 60px auto;
-    /* border: 1px solid black; */
-    /* padding: 20px; */
+    margin: 60px auto; 
 }
 .left-part{
     display: flex;
@@ -23,4 +21,17 @@
 .shop, .legal, .support{
     display: flex;flex-direction: column;
     gap: 15px   ;
+}
+@media (max-width : 376px){
+    .footer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
+        gap: 50px;
+    }
+    .right-part{
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

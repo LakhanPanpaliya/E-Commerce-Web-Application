@@ -4,6 +4,7 @@ import "./HeroSection.css";
 function HeroSection() {
   return (
     <Box
+      className="HeroSection"
       sx={{
         position: "relative",
         maxWidth: "100%",
@@ -15,7 +16,6 @@ function HeroSection() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        paddingLeft: "230px",
         color: "white",
         overflow: "hidden",
       }}
@@ -35,7 +35,16 @@ function HeroSection() {
       {/* Content */}
       <div className="content" style={{ position: "relative", zIndex: 1 }}>
         <div className="collections">SS24 COLLECTION</div>
-        <Typography variant="h2" sx={{fontFamily: 'Inter, sans-serif',fontWeight:"bold" }}>
+        <Typography
+          sx={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: "bold",
+            fontSize: {
+              xs: "1.5rem", 
+              md: "4rem",  
+            },
+          }} 
+        >
           Elevate Your Everyday Style
         </Typography>
         <Typography variant="h6" sx={{ mt: 2 }}>

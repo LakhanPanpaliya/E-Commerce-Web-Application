@@ -1,55 +1,64 @@
-.newsLetterSection{
-    background-color:#091426;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    width:75% ;
-    margin: 50px AUTO;
-    /* margin-left: 265px; */
-    border-radius: 20px;
-    padding: 20px 60px;
-    height: 150px;
-    
-}
-.headingdiv{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-.subscribediv{
-    display: flex;
-    /* align-items: center; */
-    text-align: center;
-    margin: auto auto;
-    justify-content: center;
-    height: 50px;
-    gap: 10px;
-}
-.subscribediv button{
-    background: blue;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 5px 30px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.subscribediv input{
-    /* border: none; */
-    border-radius: 20px;
-    background: transparent;
-    /* background: ; */
-    border: 2px solid white;
-    /* color: white; */
-    padding: 20px;
-    opacity: 0.5;
-}
- input::placeholder {
+.newsLetterSection {
+  background-color: #091426;
   color: white;
-  font-weight: bolder;
-  /* background: red; */
-  /* opacity: 1; Firefox renders placeholders with lower opacity by default */
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin: 50px AUTO;
+  border-radius: 20px;
+  padding: 20px 60px;
+  height: 150px;
 }
 
-/*   */
+.headingdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+.subscribediv {
+  display: flex;
+  text-align: center;
+  margin: auto auto;
+  justify-content: center;
+  height: 50px;
+  gap: 10px;
+}
+.subscribediv button {
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.subscribediv input {
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  padding: 20px;
+  opacity: 0.5;
+}
+input::placeholder {
+  color: white;
+  font-weight: bolder;
+}
+@media (max-width: 769px) {
+  .newsLetterSection {
+    width: 90%;
+    height: 200px;
+    margin: 50px 20px;
+  }
+  .subscribediv {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subscribediv input {
+    padding: 10px;
+  }
+  .subscribediv button {
+    padding: 10px;
+  }
+}

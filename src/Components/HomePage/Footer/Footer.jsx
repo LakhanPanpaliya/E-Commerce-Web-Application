@@ -2,6 +2,7 @@ import React from "react";
 import PublicIcon from "@mui/icons-material/Public";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import "./Footer.css";
+
 function Footer() {
   return (
     <div className="footer">

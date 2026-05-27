@@ -9,38 +9,16 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useSelector,useDispatch } from "react-redux";
 import { removeFromCart ,incrementQuantity,decrementQuantity} from "../../../Redux/ProductsStore";
 import "./CardItems.css";
+
+
 function CardItems() {
-  // const products = [
-  //   {
-  //     id: 1,
-  //     title: "Velocity Kinetic",
-  //     desc: "High-performance athletic footwear for urban life.",
-  //     price: "$145.00",
-  //     img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Aura Chrono",
-  //     desc: "Precision engineered timepiece with titanium casing.",
-  //     price: "$299.00",
-  //     img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Sonic Pure Pro",
-  //     desc: "Active noise cancelling with 40-hour battery life.",
-  //     price: "$380.00",
-  //     img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-  //   },
-  // ];
 const dispatch = useDispatch();
    const cartItems = useSelector(
     (state) => state.Product.cart
   ); 
 
 // SUBTOTAL OF SINGLE PRODUCT
-function getSubTotal(price, quantity) {
-  // const cleanPrice = Number(price.replace("$", ""));
+function getSubTotal(price, quantity) { 
   return Number(price * quantity).toFixed(2);
 }
 
@@ -53,9 +31,6 @@ function getTotalQuantity() {
 // TOTAL SUM OF ALL PRODUCTS
 function getTotalSum() {
   return cartItems.reduce((total, item) => {
-    // const cleanPrice = Number(
-    //   item.price.replace("$", "")
-    // );
     return Number((total + item.price * item.quantity).toFixed(2));
   }, 0);
 }
@@ -63,7 +38,6 @@ function getTotalSum() {
 
 // 10% TAX
 function getEstimatedTax() {
-  
   return  Number((getTotalSum() * 0.10).toFixed(2));  
 }
 
@@ -71,8 +45,6 @@ function getTotalSumAfterTax(){
   let result =  (getTotalSum() + getEstimatedTax()).toFixed(2);
   return Number(result);
 }
- 
- 
  
   return (
     <div className="shoopingCarddiv">
@@ -102,12 +74,10 @@ function getTotalSumAfterTax(){
 
               <div className="right-side">
                 <h3>$ {product.price}</h3>
-
                 <div className="subtotal-delete">
                   <div className="subtotal">
                     <p>Subtotal</p>
-                    <h4>$ {getSubTotal(product.price,product.quantity)} </h4>
-                    {/* {Number(product.price * product.quantity)}  */}
+                    <h4>$ {getSubTotal(product.price,product.quantity)} </h4> 
                   </div>
                   <DeleteIcon className="deleteIcon" onClick = {() => dispatch(removeFromCart(product.id))} />
                 </div>

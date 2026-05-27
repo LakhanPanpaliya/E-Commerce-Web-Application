@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Container,
   Box,
@@ -12,7 +11,6 @@ import {
   IconButton,
   Stack,
 } from "@mui/material";
-
 import { useEffect } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddIcon from "@mui/icons-material/Add";
@@ -41,7 +39,6 @@ function ProductCard() {
   // cart items
   const cartItems = useSelector((state) => state.Product.cart);
 
-
   if (loading) {
     return (
       <Typography
@@ -60,7 +57,7 @@ function ProductCard() {
       </Typography>
     );
   }
- 
+
   if (error) {
     return (
       <Typography
@@ -75,14 +72,23 @@ function ProductCard() {
           marginBottom: "50px",
         }}
       >
-        {/* console.log(error); */}
         Error: {error}
       </Typography>
     );
   }
 
   return (
-    <Container maxWidth="xl" sx={{ mt: 7, ml: 26 }}>
+    <Container
+      maxWidth="xl"
+      sx={{
+        mt: 7,
+        px: {
+          xs: 2,
+          sm: 3,
+          md: 4,
+        },
+      }}
+    >
       {/* Heading */}
       <Box
         sx={{
@@ -94,10 +100,10 @@ function ProductCard() {
       >
         <Typography
           // variant="h3"
-          fontWeight="bold" 
+          fontWeight="bold"
           sx={{
             fontFamily: "Inter, sans-serif",
-            fontSize :"32px",
+            fontSize: "32px",
             fontWeight: "550",
           }}
         >
@@ -112,7 +118,7 @@ function ProductCard() {
           const cartItem = cartItems.find((item) => item.id === product.id);
 
           return (
-            <Grid   xs={12} sm={6} md={3} key={product.id}>
+            <Grid xs={12} sm={6} md={3} key={product.id}>
               <Card
                 sx={{
                   borderRadius: "20px",
@@ -146,9 +152,7 @@ function ProductCard() {
                       position: "absolute",
                       top: 10,
                       right: 10,
-                      backgroundColor: "white",
-                      // color:'red'
-                      // :onHover
+                      backgroundColor: "white", 
                       "&:hover": {
                         bgcolor: "red",
                         opacity: [0.9, 0.8, 0.7],
@@ -167,7 +171,7 @@ function ProductCard() {
                     fontWeight="bold"
                     sx={{
                       display: "-webkit-box",
-                      WebkitLineClamp: 2, //added this for the if title is bigger than two line then hide it using ....
+                      WebkitLineClamp: 2,  
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
                       height: "60px",
@@ -175,14 +179,6 @@ function ProductCard() {
                   >
                     {product.title}
                   </Typography>
-
-                  {/* <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ mt: 1 }}
-                  >
-                    {product.description}
-                  </Typography> */}
 
                   {/* Price and  Quantity */}
                   <Box
@@ -201,8 +197,7 @@ function ProductCard() {
                     {/* Quantity */}
                     <Stack
                       direction="row"
-                      spacing={1}
-                      // alignItems="center"
+                      spacing={1} 
                       sx={{
                         border: "1px solid #ccc",
                         borderRadius: "10px",

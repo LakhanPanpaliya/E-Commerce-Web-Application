@@ -1,15 +1,12 @@
-import React from 'react';
-// import ShoppingHeader from './Header/ShoppingHeader';
+import React from 'react'; 
 import Hero from './HeroSection/Hero';
 import CardItems from './CardItems/CardItems';
 import Footer from '../HomePage/Footer/Footer';
-import Header from '../HomePage/Header/Header';
-// import Header from './Header/ShoppingHeader';
+import Header from '../HomePage/Header/Header'; 
 
 function ShoppingBag() {
     return (
-        <>
-            {/* <ShoppingHeader/>   */}
+        <> 
             <Header/>
             <Hero/> 
             <CardItems/>

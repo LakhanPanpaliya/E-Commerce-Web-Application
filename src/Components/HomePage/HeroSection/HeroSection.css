@@ -1,16 +1,34 @@
-.collections{
-    /* background: red; */
-    border: none;
-    border-radius: 20px;
-    background: rgb(75, 154, 234);
-    color: white;
-    padding: 10px 15px;
-    width: 200px;
+.collections {
+  border: none;
+  border-radius: 20px;
+  background: rgb(75, 154, 234);
+  color: white;
+  padding: 10px 15px;
+  width: 200px;
 }
-.content{
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 600px;
+}
+.HeroSection {
+  padding-left: 230px;
+}
+@media (max-width: 768px) {
+  .HeroSection {
+    padding-left: 30px;
+  }
+}
+@media (max-width: 376px) {
+  .content {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 600px;
-    /* text-align: left; */
+    flex-wrap: wrap; 
+  }
+  .collections{
+    width: 200px;
+  }
+   
 }
