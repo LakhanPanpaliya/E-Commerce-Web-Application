@@ -41,6 +41,46 @@ function ProductCard() {
   // cart items
   const cartItems = useSelector((state) => state.Product.cart);
 
+
+  if (loading) {
+    return (
+      <Typography
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "24px",
+          fontWeight: "bold",
+          color: "#010303",
+          marginTop: "50px",
+          marginBottom: "50xp",
+        }}
+      >
+        Loading Products Details...
+      </Typography>
+    );
+  }
+ 
+  if (error) {
+    return (
+      <Typography
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "24px",
+          fontWeight: "bold",
+          color: "#f82213",
+          marginTop: "50px",
+          marginBottom: "50px",
+        }}
+      >
+        {/* console.log(error); */}
+        Error: {error}
+      </Typography>
+    );
+  }
+
   return (
     <Container maxWidth="xl" sx={{ mt: 7, ml: 26 }}>
       {/* Heading */}
@@ -72,7 +112,7 @@ function ProductCard() {
           const cartItem = cartItems.find((item) => item.id === product.id);
 
           return (
-            <Grid item xs={12} sm={6} md={3} key={product.id}>
+            <Grid   xs={12} sm={6} md={3} key={product.id}>
               <Card
                 sx={{
                   borderRadius: "20px",
@@ -162,7 +202,7 @@ function ProductCard() {
                     <Stack
                       direction="row"
                       spacing={1}
-                      alignItems="center"
+                      // alignItems="center"
                       sx={{
                         border: "1px solid #ccc",
                         borderRadius: "10px",
