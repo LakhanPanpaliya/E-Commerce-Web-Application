@@ -12,6 +12,11 @@
   gap: 20px;
   padding-top: 20px;
   width: 70%;
+  height: 800px;
+  padding-right: 20px;
+  overflow: auto;
+  /* overflow: scroll; */
+  /* scrollbar-width: auto; */
 }
 .product-card {
   display: flex;
@@ -107,6 +112,7 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  height: 630px;
   gap: 20px;
   background: #eff1f4;
   border: 1px solid black;
