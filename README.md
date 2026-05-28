@@ -4,6 +4,7 @@ A React e-commerce demo built with Vite, Redux Toolkit, and Material UI.
 
 ## Overview
 
+<<<<<<< HEAD
 This project demonstrates a frontend e-commerce experience with an inventory view and a shopping cart view. Product data is fetched from an external API, and cart state is managed centrally in Redux.
 
 ## Features
@@ -14,6 +15,17 @@ This project demonstrates a frontend e-commerce experience with an inventory vie
 - Navigation state to switch between inventory and cart views
 - Data fetching from the Fake Store API
 - UI built with Material UI and Emotion styling
+=======
+This project showcases a simple e-commerce frontend with product browsing, cart management, and state handling using Redux Toolkit.
+
+## Features
+
+- Product listing and details
+- Add/remove products from cart
+- Global state management with Redux Toolkit
+- User interface built using Material UI (MUI)
+- Fast development experience with Vite
+>>>>>>> 0de507cfdcd535a124fba89ce0a30fc9edcec7a0
 
 ## Tech Stack
 
