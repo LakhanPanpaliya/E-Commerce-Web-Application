@@ -170,7 +170,7 @@
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1025px) {
   .shoopingCarddiv {
     width: 90%;
     padding: 20px;
@@ -183,5 +183,19 @@
   }
   .billingSection {
     width: 90%;
+  }
+}
+@media (max-width: 431px) {
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .right-side {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 30px;
   }
 }
