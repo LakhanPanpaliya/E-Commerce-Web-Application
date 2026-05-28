@@ -82,6 +82,12 @@ function ProductCard() {
       maxWidth="xl"
       sx={{
         mt: 7,
+        ml: {
+          xs: 0,
+          sm: 0,
+          md: 0,
+          lg: 25,
+        },
         px: {
           xs: 2,
           sm: 3,
@@ -152,7 +158,7 @@ function ProductCard() {
                       position: "absolute",
                       top: 10,
                       right: 10,
-                      backgroundColor: "white", 
+                      backgroundColor: "white",
                       "&:hover": {
                         bgcolor: "red",
                         opacity: [0.9, 0.8, 0.7],
@@ -171,7 +177,7 @@ function ProductCard() {
                     fontWeight="bold"
                     sx={{
                       display: "-webkit-box",
-                      WebkitLineClamp: 2,  
+                      WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
                       height: "60px",
@@ -197,7 +203,7 @@ function ProductCard() {
                     {/* Quantity */}
                     <Stack
                       direction="row"
-                      spacing={1} 
+                      spacing={1}
                       sx={{
                         border: "1px solid #ccc",
                         borderRadius: "10px",

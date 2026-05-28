@@ -62,3 +62,10 @@ input::placeholder {
     padding: 10px;
   }
 }
+@media (max-width :431px){
+  .newsLetterSection{
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+  }
+}
