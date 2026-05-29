@@ -1,37 +1,143 @@
-.footer{
-    display: flex;
-    justify-content: space-between;
-    width:75% ;
-    margin: 60px auto; 
+.footer {
+  width: 80%;
+  margin: 60px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
 }
-.left-part{
-    display: flex;
+ 
+.left-part {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.left-part h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.left-part p {
+  color: #555;
+  line-height: 1.7;
+  font-size: 15px;
+}
+.footer-symbols {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-symbols svg {
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.footer-symbols svg:hover {
+  transform: scale(1.1);
+  color: #1976d2;
+}
+
+/* RIGHT SIDE */
+.right-part {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.shop,
+.support,
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 140px;
+}
+
+.shop h2,
+.support h2,
+.legal h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.shop p,
+.support p,
+.legal p {
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.shop p:hover,
+.support p:hover,
+.legal p:hover {
+  color: #000;
+  transform: translateX(3px);
+}
+
+ 
+@media (max-width: 992px) {
+  .footer {
+    gap: 40px;
+  }
+
+  .right-part {
+    gap: 40px;
+  }
+}
+
+ 
+@media (max-width: 768px) {
+  .footer {
+    width: 80%;
     flex-direction: column;
-    width: 230px;
+    gap: 50px;
+  }
+
+  .left-part {
+    width: 100%;
+  }
+
+  .right-part {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+}
+
+ 
+
+@media (max-width: 480px) {
+  .footer {
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  .left-part h2 {
+    font-size: 24px;
+  }
+
+  .left-part p {
+    font-size: 14px;
+  }
+
+  .right-part {
+    grid-template-columns: 1fr;
     gap: 30px;
-}
-.footer-symbols{
-    display: flex;
-    gap: 20px;
-}
-.right-part{
-    display:  flex;
-    gap: 80px;
-}
-.shop, .legal, .support{
-    display: flex;flex-direction: column;
-    gap: 15px   ;
-}
-@media (max-width : 431px){
-    .footer{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 15px;
-        gap: 50px;
-    }
-    .right-part{
-        display: flex;
-        flex-wrap: wrap;
-    }
+  }
+
+  .shop h2,
+  .support h2,
+  .legal h2 {
+    font-size: 17px;
+  }
 }

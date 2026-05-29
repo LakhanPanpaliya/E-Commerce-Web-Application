@@ -1,196 +1,164 @@
 import * as React from "react";
+import "./Header.css";
+
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import Tooltip from "@mui/material/Tooltip";
+import Avatar from "@mui/material/Avatar";
+import Badge from "@mui/material/Badge";
+import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Badge from "@mui/material/Badge";
-import { useDispatch, useSelector } from "react-redux";
-import { setView } from "../../../Redux/NavigationSlice";
- 
 
-const pages = ["NEW ARRIVALS", "COLLECTIONS", "ACCESSORIES"];
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+
+const pages = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "About",
+    path: "#",
+  },
+  {
+    name: "Order",
+    path: "/order",
+  },
+];
+
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+ 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+ 
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+ 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
+  // CLOSE USER MENU
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+ 
   const cart = useSelector((state) => state.Product.cart);
-  const dispatch = useDispatch(); 
+
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
-    <AppBar position="sticky" sx={{ bgcolor: "white", color: "black" }}>
-      <Container maxWidth="xl" sx={{ width: "78%" }}>
-        <Toolbar disableGutters> 
-          <Typography
-            variant="h5"
-            onClick={() => dispatch(setView("Inventory"))}
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" }, 
-              fontWeight: 900,
-              letterSpacing: ".1rem",
-              color: "inherit",
-              textDecoration: "none",
-              cursor: "pointer", 
-              fontFamily: 'Inter, sans-serif',
-              fontSize :"bold",
-              fontWidth:"24px",
-            }}
-          >
+    <AppBar position="sticky" className="header" elevation={1}>
+      <Toolbar className="header-toolbar">
+        {/* logo */}
+
+        <Typography className="logo">
+          <NavLink to="/" className="logo-link">
             LUXE SHOP
-          </Typography>
-          {/* mobile bar make responsive */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none" },
-              color: "black",
-            }}
-          >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+          </NavLink>
+        </Typography>
+
+        {/* DESKTOP  */}
+
+        <div className="nav-links">
+          {pages.map((page) => (
+            <NavLink
+              key={page.name}
+              to={page.path}
+              onClick={(e) => {
+                if (page.name === "About") {
+                  e.preventDefault();
+                }
+              }}
+              className="nav-link"
+              style={{
+                fontWeight:"500",
+                color: page.name === "About" ? "rgba(8, 8, 8, 0.9)" : "",
+              }}
             >
-              <MenuIcon />
+              {page.name}
+            </NavLink>
+          ))}
+        </div>
+
+        {/* right side */}
+
+        <div className="header-icons">
+          <IconButton>
+            <SearchIcon sx={{ color: "black" }} />
+          </IconButton>
+          <NavLink to="/order" className="cart-link">
+            <Badge badgeContent={totalQuantity} color="error">
+              <ShoppingCartIcon sx={{ color: "black" }} />
+            </Badge>
+          </NavLink>
+
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu}>
+              <Avatar />
             </IconButton>
+          </Tooltip>
+
+          <Menu
+            anchorEl={anchorElUser}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {settings.map((setting) => (
+              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                {setting}
+              </MenuItem>
+            ))}
+          </Menu>
+
+          {/* mobile view */}
+
+          <div className="mobile-menu">
+            <IconButton onClick={handleOpenNavMenu}>
+              <MenuIcon sx={{ color: "black" }} />
+            </IconButton>
+
             <Menu
-              id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" }, color: "black" }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center", color: "black" }}>
-                    {page}
-                  </Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <NavLink
+                    to={page.path}
+                    onClick={(e) => {
+                      if (page.name === "About") {
+                        e.preventDefault();
+                      }
+                    }}
+                    className="mobile-nav-link"
+                    style={{
+                      color: page.name === "About" ? "rgba(0, 0, 0, 0.6)" : "",
+                    }}
+                  >
+                    {page.name}
+                  </NavLink>
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-
-          {/* desktop view */} 
-          <Typography
-            variant="h5"
-            noWrap
-            onClick={() => dispatch(setView("Inventory"))}  
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".1rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LUXE SHOP
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block", color: "black" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 2,
-            }}
-          >
-            <SearchIcon />
-
-            {/* shopping card and count Total product  */}
-            <Badge badgeContent={totalQuantity} color="error" onClick={() => dispatch(setView("Cart"))} sx={{cursor:"pointer"}}>
-              <ShoppingCartIcon />
-            </Badge>
-
-            {/* profile on click open bar  */}
-            <div className="profile">
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="" />
-                </IconButton>
-              </Tooltip>
-
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography sx={{ textAlign: "center" }}>
-                      {setting}
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </div>
-          </Box>
-        </Toolbar>
-      </Container>
+          </div>
+        </div>
+      </Toolbar>
     </AppBar>
   );
 }
+
 export default Header;

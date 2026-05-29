@@ -1,22 +1,30 @@
 import "./App.css";
 import HomePage from "./Components/HomePage/HomePage";
 import ShoppingBag from "./Components/Shopping/ShoppingBag";
-import { useSelector } from "react-redux";
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/order",
+      element: <ShoppingBag />,
+    },
+  ],
+  {
+    basename: "/E-Commerce-Web-Application/",
+  }
+);
 
 function App() {
-  const currentView = useSelector(
-    (state) => state.navigation.currentView
-  );
-
-  return (
-    <>
-      {currentView === "Cart" ? (
-        <ShoppingBag />
-      ) : (
-        <HomePage />
-      )}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
